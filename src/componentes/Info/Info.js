@@ -1,6 +1,6 @@
-const Info = () => {
+const Info = ({classNameInfo}) => {
     return(
-        <p className="message"> Calling... </p>
+        <p className={classNameInfo}> Calling... </p>
     )
 }
 
