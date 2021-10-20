@@ -7,8 +7,14 @@ import {useState} from "react";
 
 
 function App() {
-  const [number, setNumber] = useState("");
 
+  const [number, setNumber] = useState("");
+  const [infoClass, setInfoClass] = useState("message off");
+  const [callClass, setCallClass] = useState("call active");
+  const [hangClass, setHangClass] = useState("hang active off");
+  const [disable, setDisable] = useState("");
+
+  
   const submitDigit = (event) => {
     event.preventDefault();
     if (number.length < 9) { 
@@ -18,15 +24,12 @@ function App() {
     }
   }
 
-  const [infoClass, setInfoClass] = useState("message off");
-  const [callClass, setCallClass] = useState("call active");
-  const [hangClass, setHangClass] = useState("hang active off");
-
   const call = (event) => {
     event.preventDefault();
     setInfoClass("message");
     setHangClass("hang active"); 
     setCallClass("call active off");
+    setDisable(true);
   }
   
  const hang = (event) => {
@@ -34,6 +37,8 @@ function App() {
    setInfoClass("message off");
    setHangClass("hang active off"); 
    setCallClass("call active");
+   setDisable(false);
+   setNumber("");
  }
 
 
@@ -42,14 +47,15 @@ function App() {
       <Info classNameInfo = {infoClass}/>
       <main className="phone">
         <div className="keyboard-container">
-          <Keyboard actionOnClick={submitDigit}/>
+          <Keyboard actionOnClick={submitDigit} disabledState={disable}/>
         </div>
         <div className="actions">
           <Display phoneNumber={number}  />
           <Action phoneNumber={number}
                   callClassName={callClass}
                   hangClassName={hangClass} 
-                  actionOnClick={call} actionOnClickDelete={hang}/>
+                  actionOnClick={call} 
+                  actionOnClickDelete={hang}/>
         </div>
       </main>
     </div>
