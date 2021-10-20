@@ -1,27 +1,18 @@
 import './App.css';
+import Info from "./componentes/Info/Info.js";
+import Keyboard from "./componentes/Keyboard/Keyboard.js";
+import Display from "./componentes/Display/Display.js";
 
 function App() {
   return (
      <div class="container">
-      <span class="message">Calling...</span>
+      <Info/>
       <main class="phone">
         <div class="keyboard-container">
-          <ol class="keyboard">
-            <li><button class="key">1</button></li>
-            <li><button class="key">2</button></li>
-            <li><button class="key">3</button></li>
-            <li><button class="key">4</button></li>
-            <li><button class="key">5</button></li>
-            <li><button class="key">6</button></li>
-            <li><button class="key">7</button></li>
-            <li><button class="key">8</button></li>
-            <li><button class="key">9</button></li>
-            <li><button class="key">0</button></li>
-            <li><button class="key big">delete</button></li>
-          </ol>
+          <Keyboard />
         </div>
         <div class="actions">
-          <span class="number">667359961</span>
+          <Display />
           <button class="call">Call</button>
           <button class="hang active">Hang</button>
         </div>
