@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -23,8 +22,8 @@ function App() {
         </div>
         <div class="actions">
           <span class="number">667359961</span>
-          <a href="#" class="call">Call</a>
-          <a href="#" class="hang active">Hang</a>
+          <button class="call">Call</button>
+          <button class="hang active">Hang</button>
         </div>
       </main>
     </div>
