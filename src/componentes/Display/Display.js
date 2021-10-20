@@ -1,14 +1,9 @@
-import {useState} from "react";
 
-const Display = ({digit}) => {
-    const [number, setNumber] = useState(null);
 
-    const updateNumber = (digit) => {
-        setNumber([...number, digit]);
-    }
+const Display = ({phoneNumber}) => {
 
     return (
-        <button className="number" onChange={updateNumber}> {number} </button>
+        <button className="number"> {phoneNumber} </button>
     )
 }
 
