@@ -1,0 +1,41 @@
+Utilizamos los siguientes componentes
+
+
+Context
+--envia una funcion que active el boton LLAMAR en cuanto en DISPLAY tengamos un numero de 9 digitos
+--cuando el usuario clicka el LLAMAR
+-----envia una funcion al componente Info para que escriba LLAMANDO, 
+-----se deshabilita el teclado
+--cuando el usuario pulsa el botón "Colgar",  
+-----debe aparecer en su lugar el botón "Llamar". 
+-----el teclado tiene que habilitarse. 
+-----se debe borrar el número de teléfono.
+
+App
+-pasa las funciones a lso demas componentes
+
+Info
+- RECIBE una funcion para que muestre LLAMANDO en cuanto se pulsa el llamar
+- muestra LLAMANDO durante la conversacion 
+- se para despues de 5 segundos en los que no pasa nada
+
+Display
+- RECIBE no mas de 9 digitos tecleados
+- RECIBE una funcion de borrar el ultimo digito
+
+Actions
+- Tiene dos estados: llamar o colgar
+-- el estado llamar se activa cuando RECIBE un numero de exactamente 9 numeros
+
+-- al clickar el boton en estado llamar, 
+-----desaparece el boton LLAMAR
+-----aparece el boton COLGAR
+
+-- al pulsar el botón "Colgar", 
+-----éste debe desaparecer y 
+-----debe aparecer en su lugar el botón "Llamar". 
+
+
+Keyboard
+- almacena una array de botonos que muestran numeros de 0 hasta 9 
+- almacena un boton delete 
