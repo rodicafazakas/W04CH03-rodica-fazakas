@@ -16,7 +16,6 @@ describe("Given a Keyboard component", ()=> {
             )
 
             const keyButton = screen.getByText("9");
-            console.log(keyButton);
             userEvent.click(keyButton);
 
             expect(actionOnClick).toHaveBeenCalled();
