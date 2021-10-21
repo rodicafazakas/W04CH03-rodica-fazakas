@@ -4,10 +4,11 @@ const Keyboard = ({actionOnClick, disabledState}) => {
     return (
         <ol className="keyboard">
             {
-                teclas.map( (tecla) => <button key={tecla} className="key" 
+                teclas.map( (tecla) => <button key={tecla} 
+                                              className="key" 
                                                value={tecla} 
                                                onClick={actionOnClick}
-                                               disabled={disabledState}> {tecla} </button>) 
+                                               disabled={disabledState}>  {tecla}  </button>) 
             }
         </ol>
     )

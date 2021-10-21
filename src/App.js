@@ -4,6 +4,7 @@ import Keyboard from "./componentes/Keyboard/Keyboard.js";
 import Display from "./componentes/Display/Display.js";
 import Action from "./componentes/Action/Action.js";
 import {useState} from "react";
+import PhoneContext from './PhoneContext';
 
 
 function App() {
@@ -41,24 +42,34 @@ function App() {
    setNumber("");
  }
 
-
+  const contextValue = {phoneNumber: number, 
+                        classNameInfo: infoClass, 
+                        callClassName: callClass, 
+                        hangClassName: hangClass, 
+                        actionOnClick: call, 
+                        actionOnClickDelete: hang};
+  
   return (
-     <div className="container">
-      <Info classNameInfo = {infoClass}/>
-      <main className="phone">
-        <div className="keyboard-container">
-          <Keyboard actionOnClick={submitDigit} disabledState={disable}/>
-        </div>
-        <div className="actions">
-          <Display phoneNumber={number}  />
-          <Action phoneNumber={number}
-                  callClassName={callClass}
-                  hangClassName={hangClass} 
-                  actionOnClick={call} 
-                  actionOnClickDelete={hang}/>
-        </div>
-      </main>
-    </div>
+    <PhoneContext.Provider value={contextValue}>
+      
+      <div className="container">
+        {/*<Info classNameInfo = {infoClass}/>*/}
+        <Info />
+        <main className="phone">
+          <div className="keyboard-container">
+            <Keyboard actionOnClick={submitDigit} disabledState={disable}/>
+          </div>
+          <div className="actions">
+            <Display phoneNumber={number}  />
+            <Action phoneNumber={number}
+                    callClassName={callClass}
+                    hangClassName={hangClass} 
+                    actionOnClick={call} 
+                    actionOnClickDelete={hang}/>
+          </div>
+        </main>
+      </div>
+    </PhoneContext.Provider>
   );
 }
 
