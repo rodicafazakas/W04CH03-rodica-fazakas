@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import PhoneContext from '../../PhoneContext';
+import "./Keyboard.css";
 
 const Keyboard = () => {
     const teclas = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
