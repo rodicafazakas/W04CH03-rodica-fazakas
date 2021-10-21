@@ -1,11 +1,16 @@
-const Action = ({phoneNumber, callClassName, hangClassName, actionOnClick, actionOnClickDelete}) => {
+import { useContext } from 'react';
+import PhoneContext from '../../PhoneContext';
+
+const Action = () => {
+
+    const {callClassName, hangClassName, actionOnClickCall, actionOnClickHang} = useContext(PhoneContext);
 
     return (
         <>
             <button className={callClassName} 
-                    onClick={actionOnClick}> CALL </button>
+                    onClick={actionOnClickCall}> CALL </button>
             <button className={hangClassName}
-                    onClick={actionOnClickDelete}> HANG </button>
+                    onClick={actionOnClickHang}> HANG </button>
         </>
     )
 }

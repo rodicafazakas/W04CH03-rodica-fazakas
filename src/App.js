@@ -25,6 +25,12 @@ function App() {
     }
   }
 
+  const deleteLastDigit = (event) => {
+    event.preventDefault();
+    number.splice(-1)
+    setNumber([...number]);
+  }
+
   const call = (event) => {
     event.preventDefault();
     setInfoClass("message");
@@ -46,26 +52,24 @@ function App() {
                         classNameInfo: infoClass, 
                         callClassName: callClass, 
                         hangClassName: hangClass, 
-                        actionOnClick: call, 
-                        actionOnClickDelete: hang};
+                        disabledState: disable, 
+                        actionOnClick: submitDigit,
+                        actionOnClickCall: call, 
+                        actionOnClickHang: hang,
+                        deleteLastDigit: deleteLastDigit};
   
   return (
     <PhoneContext.Provider value={contextValue}>
-      
+
       <div className="container">
-        {/*<Info classNameInfo = {infoClass}/>*/}
         <Info />
         <main className="phone">
           <div className="keyboard-container">
-            <Keyboard actionOnClick={submitDigit} disabledState={disable}/>
+            <Keyboard />
           </div>
           <div className="actions">
-            <Display phoneNumber={number}  />
-            <Action phoneNumber={number}
-                    callClassName={callClass}
-                    hangClassName={hangClass} 
-                    actionOnClick={call} 
-                    actionOnClickDelete={hang}/>
+            <Display />
+            <Action />
           </div>
         </main>
       </div>
