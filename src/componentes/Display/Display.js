@@ -1,7 +1,8 @@
+import { useContext } from 'react';
+import PhoneContext from '../../PhoneContext';
 
-
-const Display = ({phoneNumber}) => {
-
+const Display = () => {
+    const {phoneNumber} = useContext(PhoneContext);
     return (
         <button className="number"> {phoneNumber} </button>
     )
