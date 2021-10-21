@@ -4,7 +4,7 @@ import PhoneContext from '../../PhoneContext';
 const Display = () => {
     const {phoneNumber} = useContext(PhoneContext);
     return (
-        <button className="number"> {phoneNumber} </button>
+        <button className="number" placeholder="phone-number"> {phoneNumber} </button>
     )
 }
 
